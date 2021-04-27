@@ -29,7 +29,7 @@ O = {
     dart = {sdk_path = '/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot'},
     lua = {
         -- @usage can be 'lua-format'
-        formatter = 'lua-format',
+        formatter = '',
         autoformat = false,
         diagnostics = {virtual_text = true, signs = true, underline = true}
     },
@@ -45,22 +45,19 @@ O = {
         -- @usage can be 'eslint'
         linter = '',
         -- @usage can be 'prettier'
-        formatter = 'prettier',
+        formatter = '',
         autoformat = false,
         diagnostics = {virtual_text = true, signs = true, underline = true}
     },
     json = {
         -- @usage can be 'prettier'
-        formatter = 'prettier',
+        formatter = '',
         autoformat = false,
         diagnostics = {virtual_text = true, signs = true, underline = true}
     },
     tailwindls = {filetypes = {'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}},
     clang = {diagnostics = {virtual_text = true, signs = true, underline = true}},
-	ruby = {
-		diagnostics = {virtualtext = true, signs = true, underline = true},
-		filetypes = {'rb', 'erb', 'rakefile'}
-	}
+    ruby = {diagnostics = {virtualtext = true, signs = true, underline = true}, filetypes = {'rb', 'erb', 'rakefile'}}
     -- css = {formatter = '', autoformat = false, virtual_text = true},
     -- json = {formatter = '', autoformat = false, virtual_text = true}
 }

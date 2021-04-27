@@ -1,49 +1,40 @@
 -- Example configuations here: https://github.com/mattn/efm-langserver
 -- TODO this file needs to be refactored eache lang should be it's own file
 -- python
-local python_arguments = {}
-
--- TODO replace with path argument
 local flake8 = {
     LintCommand = "flake8 --ignore=E501 --stdin-display-name ${INPUT} -",
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"}
 }
-
 local isort = {formatCommand = "isort --quiet -", formatStdin = true}
-
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
 local black = {formatCommand = "black --quiet -", formatStdin = true}
+local python_arguments = {}
 
 -- lua
 local luaFormat = {
     formatCommand = "lua-format -i --no-keep-simple-function-one-line --column-limit=120",
     formatStdin = true
 }
+local lua_fmt = {formatCommand = "luafmt --indent-count 2 --line-width 120 --stdin", formatStdin = true}
+local lua_arguments = {}
+if O.lua.formatter == 'lua-format' then table.insert(lua_arguments, luaFormat) end
+if O.lua.formatter == 'lua_fmt' then table.insert(lua_arguments, lua_fmt) end
 
-local lua_fmt = {
-    formatCommand = "luafmt --indent-count 2 --line-width 120 --stdin",
-    formatStdin = true
-}
-local lua_arguments = {luaFormat, lua_fmt}
 -- sh
-local sh_arguments = {}
-
 local shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
-
 local shellcheck = {
     LintCommand = 'shellcheck -f gcc -x',
     lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
 }
+local sh_arguments = {}
+if O.sh.formatter == 'shfmt' then table.insert(sh_arguments, shfmt) end
+if O.sh.linter == 'shellcheck' then table.insert(sh_arguments, shellcheck) end
 
 -- tsserver/web javascript react, vue, json, html, css, yaml
-local prettier = {
-	formatCommand = "yarn run prettier --stdin-filepath ${INPUT}",
-	formatStdin = true
-}
+local prettier = {formatCommand = "yarn run prettier --stdin-filepath ${INPUT}", formatStdin = true}
 -- You can look for project scope Prettier and Eslint with e.g. vim.fn.glob("node_modules/.bin/prettier") etc. If it is not found revert to global Prettier where needed.
 -- local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
-
 local eslint = {
     lintCommand = "yarn run eslint -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
@@ -52,9 +43,9 @@ local eslint = {
     formatCommand = "yarn run eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
     formatStdin = true
 }
-
 local tsserver_args = {}
-
+if O.tsserver.formatter == 'prettier' then table.insert(tsserver_args, prettier) end
+if O.tsserver.linter == 'eslint' then table.insert(tsserver_args, eslint) end
 --     -- TODO default to global lintrc
 --     -- lintcommand = 'markdownlint -s -c ./markdownlintrc',
 --     lintCommand = 'markdownlint -s',
@@ -66,6 +57,7 @@ local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --t
 
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
+	cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
     init_options = {documentFormatting = true, codeAction = false},
     filetypes = {"lua", "python", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml", "markdown"},
     settings = {
@@ -74,8 +66,8 @@ require"lspconfig".efm.setup {
             python = python_arguments,
             lua = lua_arguments,
             sh = sh_arguments,
-            javascript = {prettier, eslint},
-            javascriptreact = {prettier, eslint},
+            javascript = tsserver_args,
+            javascriptreact = tsserver_args,
             html = {prettier},
             css = {prettier},
             json = {prettier},
