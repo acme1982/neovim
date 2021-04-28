@@ -10,7 +10,8 @@ O.auto_complete = true
 O.colorscheme = 'nvcode'
 O.auto_close_tree = 0
 O.wrap_lines = false
-
+O.number = true
+O.relative_number = true
 -- if you don't want all the parsers change this to a table of the ones you want
 O.treesitter.ensure_installed = "all"
 O.treesitter.ignore_install = {"haskell"}
