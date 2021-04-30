@@ -47,7 +47,8 @@ return require("packer").startup(
 		-- EmmetInstall
 		use 'mattn/emmet-vim'
         -- Debugging
-        use "mfussenegger/nvim-dap"
+        use 'puremourning/vimspector'
+		-- use "mfussenegger/nvim-dap"
 
         -- Autocomplete
         use "hrsh7th/nvim-compe"
@@ -62,8 +63,8 @@ return require("packer").startup(
         use "kyazdani42/nvim-tree.lua"
         -- TODO remove when open on dir is supported by nvimtree
         use "kevinhwang91/rnvimr"
-		use 'francoiscabrol/ranger.vim'
-		use 'rbgrouleff/bclose.vim'
+		--use 'francoiscabrol/ranger.vim'
+		--use 'rbgrouleff/bclose.vim'
         -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
         use "lewis6991/gitsigns.nvim"
         use "liuchengxu/vim-which-key"
@@ -83,13 +84,14 @@ return require("packer").startup(
             requires = {'kyazdani42/nvim-web-devicons'}
         }
         use "romgrk/barbar.nvim"
-				require_plugin("nvim-lspconfig")
+		
+		require_plugin("vimspector")
+		require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
         require_plugin("popup.nvim")
         require_plugin("plenary.nvim")
         require_plugin("telescope.nvim")
-        require_plugin("nvim-dap")
         require_plugin("nvim-compe")
         require_plugin("vim-vsnip")
         require_plugin("nvim-treesitter")

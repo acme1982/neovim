@@ -1,5 +1,8 @@
 " Leader Key Maps
-
+" helper function to navigate windows
+fun GoToWindow(id)
+	call win_gotoid(a:id)
+endfun
 " Timeout
 let g:which_key_timeout = 100
 
@@ -50,12 +53,21 @@ let g:which_key_map.b = {
 " d is for debug
 let g:which_key_map.d = {
       \ 'name' : '+debug' ,
-      \ 'b' : ['DebugToggleBreakpoint '        , 'toggle breakpoint'],
-      \ 'c' : ['DebugContinue'                 , 'continue'],
-      \ 'i' : ['DebugStepInto'                 , 'step into'],
-      \ 'o' : ['DebugStepOver'                 , 'step over'],
-      \ 'r' : ['DebugToggleRepl'               , 'toggle repl'],
-      \ 's' : ['DebugStart'                    , 'start'],
+      \ 'b' : [':call vimspector#ToggleBreakpoint()<CR>'   , 'toggle breakpoint'],
+			\ 'l' : [':call vimspector#ClearBreakpoints()<CR>'   , 'clear breakpoints'],
+      \ 'c' : [':call vimspector#Continue()<CR>'           , 'continue'],
+      \ 'i' : [':call vimspector#StepInto()<CR>'           , 'step into'],
+      \ 'o' : [':call vimspector#StepOver()<CR>'           , 'step over'],
+			\ 'u' : [':call vimspector#StepOut()<CR>'						 , 'step out'],
+      \ 'r' : [':call vimspector#Restart()<CR>'         	 , 'restart'],
+      \ 's' : [':call vimspector#Launch()<CR>' 			   		 , 'start'],
+	  	\ 'q' : [':call vimspector#Reset()<CR>'  				 		 , 'reset'],
+			\ '1' : [':call GoToWindow(g:vimspector_session_windows.code)<CR>'				, 'Code window'],
+			\ '2' : [':call GoToWindow(g:vimspector_session_windows.tagpage)<CR>'			, 'Tagpage window'],
+			\ '3' : [':call GoToWindow(g:vimspector_session_windows.variable)<CR>'		, 'Variables window'],
+			\ '4' : [':call GoToWindow(g:vimspector_session_windows.watches)<CR>'			, 'Watches window'],
+			\ '5' : [':call GoToWindow(g:vimspector_session_windows.stack_trace)<CR>'	, 'Stack trace window'],
+			\ '6' : [':call GoToWindow(g:vimspector_session_windows.output)<CR>'			, 'Output window'],
       \ }
 
 " F is for fold

@@ -119,10 +119,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/nvim-dap"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
@@ -174,6 +170,10 @@ _G.packer_plugins = {
   ["vim-which-key"] = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/vim-which-key"
+  },
+  vimspector = {
+    loaded = true,
+    path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/vimspector"
   },
   ["vscode-es7-javascript-react-snippets"] = {
     loaded = true,

@@ -40,6 +40,7 @@ O.lua.autoformat = false
 
 -- javascript
 O.tsserver.formatter = 'prettier'
+O.tsserver.linter = 'eslint'
 O.tsserver.autoformat = true
 O.tsserver.linter = nil
 
