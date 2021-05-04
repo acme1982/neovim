@@ -20,7 +20,7 @@ require'compe'.setup {
         calc = {kind = "  "},
         vsnip = {kind = "  "},
         nvim_lsp = {kind = "  "},
-        -- nvim_lua = {kind = "  "},
+        tabnine = {kind = "  "},
 		nvim_lua = false,
         spell = {kind = "  "},
         tags = false,

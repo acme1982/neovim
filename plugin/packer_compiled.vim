@@ -159,6 +159,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/rnvimr"
   },
+  ["tabnine-vim"] = {
+    loaded = true,
+    path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/tabnine-vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/telescope.nvim"

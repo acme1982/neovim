@@ -42,9 +42,9 @@ O.lua.autoformat = false
 O.tsserver.formatter = 'prettier'
 O.tsserver.linter = 'eslint'
 O.tsserver.autoformat = true
-O.tsserver.linter = nil
 
 -- json
 O.json.autoformat = true
+O.json.formatter = 'prettier'
 
 -- create custom autocommand field (This would be easy with lua)

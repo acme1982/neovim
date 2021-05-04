@@ -44,17 +44,18 @@ return require("packer").startup(
         use "nvim-lua/popup.nvim"
         use "nvim-lua/plenary.nvim"
         use "nvim-telescope/telescope.nvim"
-		-- EmmetInstall
-		use 'mattn/emmet-vim'
+				-- EmmetInstall
+				use 'mattn/emmet-vim'
         -- Debugging
         use 'puremourning/vimspector'
-		-- use "mfussenegger/nvim-dap"
+				-- use "mfussenegger/nvim-dap"
 
         -- Autocomplete
-        use "hrsh7th/nvim-compe"
-        use "hrsh7th/vim-vsnip"
+        use "hrsh7th/nvim-compe" --completion
+				use "hrsh7th/vim-vsnip"
+				use "codota/tabnine-vim"
         use "rafamadriz/friendly-snippets"
-		use "dsznajder/vscode-es7-javascript-react-snippets"
+				use "dsznajder/vscode-es7-javascript-react-snippets"
         -- Treesitter
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
         use "windwp/nvim-ts-autotag"
@@ -84,10 +85,11 @@ return require("packer").startup(
             requires = {'kyazdani42/nvim-web-devicons'}
         }
         use "romgrk/barbar.nvim"
-		
-		require_plugin("vimspector")
-		require_plugin("nvim-lspconfig")
-        require_plugin("lspsaga.nvim")
+				-- Require plugings to be loaded during nvim launch
+				require_plugin("vimspector")
+				require_plugin("nvim-lspconfig")
+    		require_plugin("tabnine-vim")
+				require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
         require_plugin("popup.nvim")
         require_plugin("plenary.nvim")
