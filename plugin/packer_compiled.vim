@@ -75,6 +75,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
+  ["compe-tabnine"] = {
+    loaded = true,
+    path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/compe-tabnine"
+  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
@@ -158,10 +162,6 @@ _G.packer_plugins = {
   rnvimr = {
     loaded = true,
     path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/rnvimr"
-  },
-  ["tabnine-vim"] = {
-    loaded = true,
-    path = "/Users/mariusnalivaika/.local/share/nvim/site/pack/packer/start/tabnine-vim"
   },
   ["telescope.nvim"] = {
     loaded = true,

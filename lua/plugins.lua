@@ -52,8 +52,8 @@ return require("packer").startup(
 
         -- Autocomplete
         use "hrsh7th/nvim-compe" --completion
+				use {'tzachar/compe-tabnine', requires = 'hrsh7th/nvim-compe'}
 				use "hrsh7th/vim-vsnip"
-				use "codota/tabnine-vim"
         use "rafamadriz/friendly-snippets"
 				use "dsznajder/vscode-es7-javascript-react-snippets"
         -- Treesitter
@@ -86,9 +86,9 @@ return require("packer").startup(
         }
         use "romgrk/barbar.nvim"
 				-- Require plugings to be loaded during nvim launch
+				require_plugin("compe-tabnine")
 				require_plugin("vimspector")
 				require_plugin("nvim-lspconfig")
-    		require_plugin("tabnine-vim")
 				require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
         require_plugin("popup.nvim")
